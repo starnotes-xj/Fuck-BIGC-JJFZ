@@ -1,5 +1,7 @@
 # 北京印刷学院积极分子自动化刷课脚本
 
+![Static Badge](https://img.shields.io/badge/%E4%BD%9C%E8%80%85-%E6%98%9F%E8%AE%B0-green?logo=github)![Static Badge](https://img.shields.io/badge/%E4%BD%9C%E8%80%85%E9%82%AE%E7%AE%B1-starnotes%40qq.com-green?logo=qq)![Static Badge](https://img.shields.io/badge/version-4.30.0-green?logo=selenium)
+
 该脚本适用于**北京印刷学院线上党课学习**，其他学校需要根据具体的具体的CSS定位器进行重构。
 该脚本的验证码识别使用百度OCR,[百度智能云]: https://cloud.baidu.com/product/ocr
 使用前请将**百度OCR**的**APP_ID**、**API_KEY**、**SECRET_KEY**,以及**账号**和**密码**替换成自己的。
