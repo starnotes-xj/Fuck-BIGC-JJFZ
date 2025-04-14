@@ -1,6 +1,8 @@
 # 北京印刷学院积极分子自动化刷课脚本
 
-![Static Badge](https://img.shields.io/badge/%E4%BD%9C%E8%80%85-%E6%98%9F%E8%AE%B0-green?logo=github&link=https%3A%2F%2Fgithub.com%2Fstarnotes-xj)![Static Badge](https://img.shields.io/badge/%E4%BD%9C%E8%80%85%E9%82%AE%E7%AE%B1-starnotes%40qq.com-green?logo=qq&link=https%3A%2F%2Fgithub.com%2Fstarnotes-xj)![Static Badge](https://img.shields.io/badge/version-4.30.0-green?logo=selenium)
+[![Static Badge](https://img.shields.io/badge/%E4%BD%9C%E8%80%85-%E6%98%9F%E8%AE%B0-green?logo=github&link=https%3A%2F%2Fgithub.com%2Fstarnotes-xj)](https://github.com/starnotes-xj)
+[![Static Badge](https://img.shields.io/badge/%E4%BD%9C%E8%80%85%E9%82%AE%E7%AE%B1-starnotes%40qq.com-green?logo=github)](https://github.com/starnotes-xj)
+[![Static Badge](https://img.shields.io/badge/Selenium-version%3A4.30.0-green?logo=selenium)](https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java)
 
 该脚本适用于**北京印刷学院线上党课学习**，其他学校需要根据具体的具体的CSS定位器进行重构。
 该脚本的验证码识别使用百度OCR,[百度智能云]: https://cloud.baidu.com/product/ocr
