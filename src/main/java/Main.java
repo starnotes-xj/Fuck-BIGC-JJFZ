@@ -1,5 +1,10 @@
+// SPDX-FileCopyrightText: 2025 starnotes <starnotes@qq.com>
+//
+// SPDX-License-Identifier: GPL-3.0-or-later
+
 import CAPTCHAUtils.BaiDu;
 import CAPTCHAUtils.IdentificationCAPTCHA;
+import Utils.DriverManger;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -9,11 +14,9 @@ import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
 import java.time.Duration;
 
 /**
@@ -24,6 +27,8 @@ public class Main {
     private static final String userName = "";
     // 定义密码常量，用于登录操作
     private static final String password = "";
+    // 定义网站 URL 常量，用于登录操作
+    private static final String URL = "http://xscdx.bigc.edu.cn/";
     // 定义 WebDriver 对象，用于控制浏览器
     private static WebDriver driver;
 
@@ -70,17 +75,11 @@ public class Main {
          * System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
          * 此处为了能够在 JAR 包中运行,所以需要将驱动文件复制到临时目录中,然后设置驱动路径
          */
-        // 从类路径加载 chromedriver.exe
-        InputStream inputStream = Main.class.getClassLoader().getResourceAsStream("chromedriver.exe");
-        // 将驱动文件复制到临时目录（解决 JAR 中无法直接执行的问题）
-        Path tempFile = Files.createTempFile("chromedriver", ".exe");
-        Files.copy(inputStream, tempFile, StandardCopyOption.REPLACE_EXISTING);
-        tempFile.toFile().setExecutable(true); // 设置可执行权限
         // 配置驱动路径
-        System.setProperty("webdriver.chrome.driver", tempFile.toAbsolutePath().toString());
+        System.setProperty("webdriver.chrome.driver", DriverManger.setupDriver());
         WebDriver driver = new ChromeDriver();
         // 打开指定 URL
-        driver.get("http://xscdx.bigc.edu.cn/");
+        driver.get(URL);
         // 最大化窗口
         driver.manage().window().maximize();
         return driver;
