@@ -14,7 +14,11 @@
 
 ## 使用前的准备
 
-没有的可以去对应的官网注册账号，创建应用获取所需的**APP_ID**、**API_KEY**和**SECRET_KEY**。下列徽标可以直接点击跳转
+安装Java环境
+
+[![Static Badge](https://img.shields.io/badge/Java24-Download-green)](https://www.oracle.com/cn/java/technologies/downloads/)
+
+API_KEY没有的可以去对应的官网注册账号，创建应用获取所需的**APP_ID**、**API_KEY**和**SECRET_KEY**。下列徽标可以直接点击跳转
 
 使用前请将**百度OCR**的**APP_ID**、**API_KEY**、**SECRET_KEY**,以及**账号**和**密码**替换成自己的。**使用自动答题时需要更改DeepSeek的API_KEY更换为自己的**
 
@@ -49,6 +53,8 @@
 >    ```
 >
 >    **每条API_KEY之间用逗号分隔**
+>    
+>    Jar包版本的自动答题也需要输入上述命令打开新的浏览器进行登录，在考试界面直接用java -jar AutoAnswer.jar运行自动答题
 
 ## 其余说明
 
