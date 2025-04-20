@@ -1,5 +1,5 @@
 # 北京印刷学院积极分子自动化刷课脚本
-[![Static Badge](https://img.shields.io/badge/%E4%BD%9C%E8%80%85-%E6%98%9F%E8%AE%B0-green?logo=github&link=https%3A%2F%2Fgithub.com%2Fstarnotes-xj)](https://github.com/starnotes-xj)[![Static Badge](https://img.shields.io/badge/%E4%BD%9C%E8%80%85%E9%82%AE%E7%AE%B1-starnotes%40qq.com-green?logo=github)](https://github.com/starnotes-xj)[![Static Badge](https://img.shields.io/badge/%E5%8C%97%E4%BA%AC%E5%8D%B0%E5%88%B7%E5%AD%A6%E9%99%A2-BIGC-blue?logo=counterstrike)](https://www.bigc.edu.cn/)[![Static Badge](https://img.shields.io/badge/Selenium-version%3A4.30.0-green?logo=selenium)](https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java)[![Static Badge](https://img.shields.io/badge/%20LICENSE-GPL3.0-green)](https://github.com/starnotes-xj/Fuck-BIGC-JJFZ?tab=GPL-3.0-1-ov-file#readme)
+[![Static Badge](https://img.shields.io/badge/%E4%BD%9C%E8%80%85-%E6%98%9F%E8%AE%B0-green?logo=github&link=https%3A%2F%2Fgithub.com%2Fstarnotes-xj)](https://github.com/starnotes-xj)[![Static Badge](https://img.shields.io/badge/%E4%BD%9C%E8%80%85%E9%82%AE%E7%AE%B1-starnotes%40qq.com-green?logo=github)](https://github.com/starnotes-xj)[![Static Badge](https://img.shields.io/badge/%E5%8C%97%E4%BA%AC%E5%8D%B0%E5%88%B7%E5%AD%A6%E9%99%A2-BIGC-blue?logo=counterstrike)](https://www.bigc.edu.cn/)[![Static Badge](https://img.shields.io/badge/Selenium-version%3A4.30.0-green?logo=selenium)](https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java)[![Static Badge](https://img.shields.io/badge/%20LICENSE-GPL3.0-green)](https://github.com/starnotes-xj/Fuck-BIGC-JJFZ?tab=GPL-3.0-1-ov-file#readme)[![Static Badge](https://img.shields.io/badge/RELEASE-v2.0-green?logo=github)](https://github.com/starnotes-xj/Fuck-BIGC-JJFZ/releases)
 
 ## 脚本说明
 
@@ -18,20 +18,33 @@
 
 ### **更改处：**
 
-> 1. 在**Main.java**中修改自己的**账号**和**密码**
+> 1. 在**Main.Main.java**中修改自己的**账号**和**密码**
 > 2. 在**Baidu.java**中修改自己的**APP_ID**、**API_KEY**、**SECRET_KEY**。
 > 3. 在**Deepseek.java**中修改自己的**API_KEY**。
-> 4. **Template.java**文件**非开发者**无需修改。
+> 4. **Main.Template.java**文件**非开发者**无需修改。
 
 ## 注意事项
 
 > 1. 使用时需要连接校园网，请勿打开VPN。
+>
 > 2. 在脚本运行过程中会自动跳转到未学习的课程，自动完成学习。但是自测仍然需要自己完成。
+>
 > 3. 在播放完视频后会自动点击播放完毕的按钮，在此过程中您会看见播放完毕的视频重新播放，但是会很快的跳转到未播放的视频，这属于该脚本的正常现象。
+>
 > 4. 该脚本未提供更改倍速功能，建议留出一定时间刷课。不提供更改倍速功能是因为在页面源代码中有检测异常学习的情况，所以后台应该有学习时长记录。
+>
 > 5. 如果发现输出了所有必修课完成，但是还是有未完成的必修课，再次运行脚本即可.
-> 6. 使用自动答题时需要运行下列命令，使用Win+R打开运行输入以下命令会
+>
+> 6. 使用自动答题时需要运行下列命令，使用Win+R打开运行输入以下命令
 >    **chrome.exe --remote-debugging-port=9222 --user-data-dir="D:\selenium_test"**
+>
+>    **AutoAnswerQuestion.java**是自动答题的程序，使用上述命令后会打开一个新的chrome浏览器，在新打开的chrome浏览器中重新登录，**进入自测考试和结业考试后运行AutoAnswerQuestion即可自动答题**。在答题前需要运行Main.java来保存Deepseek的API_KEY。或者在**config/APIKeys.json**中手动添加，格式如下：
+>
+>    ```json
+>    "deepseekapikey":"你的Deepseek API_KEY"
+>    ```
+>
+>    **每条API_KEY之间用逗号分隔**
 
 ## 其余说明
 

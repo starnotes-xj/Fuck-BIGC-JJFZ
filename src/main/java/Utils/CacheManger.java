@@ -4,20 +4,24 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
+import java.sql.DriverManager;
 import java.util.HashMap;
 import java.util.Map;
 
 public class CacheManger {
     private static final Logger logger = LoggerFactory.getLogger(CacheManger.class);
-    private final String CACHE_FILE = "data/question_cache.json";
-    private final ObjectMapper objectMapper = new ObjectMapper();
-    private final Map<String, String> cache = new HashMap<>();
-    private final Path path = Paths.get(CACHE_FILE);
-
+    private static final String CACHE_FILE_DIR = "data";
+    private static final String CACHE_FILE_NAME= "question_cache.json";
+    private static final ObjectMapper objectMapper = new ObjectMapper();
+    private static final Map<String, String> cache = new HashMap<>();
+    private static Path path = Paths.get(CACHE_FILE_DIR, CACHE_FILE_NAME);
     public CacheManger() throws IOException {
         loadCache();
     }
@@ -25,10 +29,28 @@ public class CacheManger {
     private void loadCache() throws IOException {
         // 确保目录和文件存在
         if (!Files.exists(path)) {
-            Files.createDirectories(path.getParent());
-            Files.createFile(path);
-            logger.info("创建新缓存文件: {}", CACHE_FILE);
-            return; // 新文件不需要加载
+            System.out.println("外部题库文件不存在，尝试从JAR资源加载...");
+            try (InputStream inputStream = CacheManger.class.getClassLoader()
+                    .getResourceAsStream(CACHE_FILE_NAME)){
+                if (inputStream == null) {
+                    System.out.println("在JAR资源中找不到题库，将创建新的题库");
+                }
+                if (!Files.exists(path.getParent())){
+                    Files.createDirectories(path.getParent());
+                }
+                Files.createFile(path);
+                logger.info("创建新缓存文件: {}", CACHE_FILE_NAME);
+                // 将题库文件复制到外部目录
+                Files.copy(inputStream,path, StandardCopyOption.REPLACE_EXISTING);
+                // 设置可执行权限（主要针对Linux/Mac）
+                File cacheFile = path.toFile();
+                if (!cacheFile.setReadable(true)) {
+                    logger.warn("无法设置题库文件可读权限");
+                }
+                if (!cacheFile.setExecutable(true)) {
+                    logger.warn("无法设置题库文件可执行权限");
+                }
+            }
         }
         // 仅当文件有内容时加载
         if (Files.size(path) > 0) {
@@ -50,7 +72,7 @@ public class CacheManger {
     public synchronized void saveCache() {
         try {
             objectMapper.writeValue(path.toFile(), cache);
-            logger.debug("缓存已保存至 {}，当前缓存大小: {}", CACHE_FILE, cache.size());
+            logger.debug("缓存已保存至 {}，当前缓存大小: {}", CACHE_FILE_NAME, cache.size());
         } catch (Exception e) {
             logger.error("保存缓存文件失败", e);
         }

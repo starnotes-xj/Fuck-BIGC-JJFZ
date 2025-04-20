@@ -13,11 +13,19 @@ import java.util.HashMap;
 import java.util.List;
 
 public class BaiDu implements IdentificationCAPTCHA {
-    private static final String APP_ID = "";
-    private static final String API_KEY = "";
-    private static final String SECRET_KEY = "";
-    private static final AipOcr client = new AipOcr(APP_ID, API_KEY, SECRET_KEY);
+    private static String APP_ID = "";
+    private static String API_KEY = "";
+    private static String SECRET_KEY = "";
+    private static AipOcr client;
     String captcha_result = "";
+
+    public BaiDu(String appId, String apiKey, String secretKey) {
+        APP_ID = appId;
+        API_KEY = apiKey;
+        SECRET_KEY = secretKey;
+        client = new AipOcr(APP_ID, API_KEY, SECRET_KEY);
+    }
+
     @Override
     public String getCaptcha(String imagePath) {
         HashMap<String, String> options = new HashMap<String, String>();

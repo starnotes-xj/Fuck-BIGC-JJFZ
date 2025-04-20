@@ -27,7 +27,7 @@ public class DriverManger {
         }
         // 2. 如果外部不存在，尝试从JAR资源中提取
         logger.info("外部驱动文件不存在，尝试从JAR资源加载...");
-        try (InputStream inputStream = DriverManger.class.getClassLoader().getResourceAsStream("chromedriver.exe")) {
+        try (InputStream inputStream = DriverManger.class.getClassLoader().getResourceAsStream(DRIVER_NAME)) {
             if (inputStream == null) {
                 System.out.println("在JAR资源中找不到 " + DRIVER_NAME);
             }

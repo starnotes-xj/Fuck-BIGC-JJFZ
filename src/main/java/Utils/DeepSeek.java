@@ -1,5 +1,6 @@
 package Utils;
 
+import Main.Main;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
@@ -11,9 +12,25 @@ import org.apache.hc.core5.http.HttpEntity;
 import org.apache.hc.core5.http.io.entity.EntityUtils;
 import org.apache.hc.core5.http.io.entity.StringEntity;
 
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
 public class DeepSeek {
-    private static final ObjectMapper mapper = new ObjectMapper();
-    private static final String API_KEY = "";
+    private static ObjectMapper mapper = new ObjectMapper();
+    private static ObjectMapper API_KEY_Mapper = Main.API_KEY_Mapper;
+    private static Map<String, String> APIKeys;
+
+    static {
+        try {
+            APIKeys = API_KEY_Mapper.readValue(Main.path.toFile(),
+                    API_KEY_Mapper.getTypeFactory().constructMapType(HashMap.class,String.class,String.class));
+        } catch (IOException e) {
+            System.out.println("读取APIKey失败");
+        }
+    }
+
+    private static final String API_KEY = APIKeys.get("deepseekapikey");
     private static final String API_URL = "https://api.deepseek.com/v1/chat/completions";
     private static final String MODEL_R1 = "deepseek-reasoner";
     private static final String MODEL_V3 = "deepseek-chat";
