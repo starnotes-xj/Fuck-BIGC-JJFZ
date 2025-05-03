@@ -1,5 +1,5 @@
 # 北京印刷学院积极分子自动化刷课脚本
-[![Static Badge](https://img.shields.io/badge/%E4%BD%9C%E8%80%85-%E6%98%9F%E8%AE%B0-green?logo=github&link=https%3A%2F%2Fgithub.com%2Fstarnotes-xj)](https://github.com/starnotes-xj)[![Static Badge](https://img.shields.io/badge/%E4%BD%9C%E8%80%85%E9%82%AE%E7%AE%B1-starnotes%40qq.com-green?logo=github)](https://github.com/starnotes-xj)[![Static Badge](https://img.shields.io/badge/%E5%8C%97%E4%BA%AC%E5%8D%B0%E5%88%B7%E5%AD%A6%E9%99%A2-BIGC-blue?logo=counterstrike)](https://www.bigc.edu.cn/)[![Static Badge](https://img.shields.io/badge/Selenium-version%3A4.30.0-green?logo=selenium)](https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java)[![Static Badge](https://img.shields.io/badge/%20LICENSE-GPL3.0-green)](https://github.com/starnotes-xj/Fuck-BIGC-JJFZ?tab=GPL-3.0-1-ov-file#readme)[![Static Badge](https://img.shields.io/badge/RELEASE-v2.0-green?logo=github)](https://github.com/starnotes-xj/Fuck-BIGC-JJFZ/releases)
+[![Static Badge](https://img.shields.io/badge/%E4%BD%9C%E8%80%85-%E6%98%9F%E8%AE%B0-green?logo=github&link=https%3A%2F%2Fgithub.com%2Fstarnotes-xj)](https://github.com/starnotes-xj)[![Static Badge](https://img.shields.io/badge/%E4%BD%9C%E8%80%85%E9%82%AE%E7%AE%B1-starnotes%40qq.com-green?logo=github)](https://github.com/starnotes-xj)[![Static Badge](https://img.shields.io/badge/%E5%8C%97%E4%BA%AC%E5%8D%B0%E5%88%B7%E5%AD%A6%E9%99%A2-BIGC-blue?logo=counterstrike)](https://www.bigc.edu.cn/)[![Static Badge](https://img.shields.io/badge/Selenium-version%3A4.30.0-green?logo=selenium)](https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java)[![Static Badge](https://img.shields.io/badge/%20LICENSE-GPL3.0-green)](https://github.com/starnotes-xj/Fuck-BIGC-JJFZ?tab=GPL-3.0-1-ov-file#readme)
 
 ## 脚本说明
 
@@ -10,7 +10,29 @@
 
 ## Release版本
 
-下载源码之后不会使用的，可以直接下载**Release**版本，点击上述的**Release徽标**即可跳转至**Release版本**页面进行下载。
+下载源码之后不会使用的，可以直接下载**Release**版本，点击**Release徽标**即可跳转至**Release版本**页面进行下载。
+
+[![Static Badge](https://img.shields.io/badge/RELEASE-v2.0-green?logo=github)](https://github.com/starnotes-xj/Fuck-BIGC-JJFZ/releases)
+
+docker镜像可以在Release中下载，镜像也可以直接拉取，使用docker镜像则无需进行下面的准备,docker镜像便于使用
+
+在Release中的tar文件是Docker镜像
+
+下载之后使用如下命令加载即可，然后按照下面的容器启动命令启动即可
+
+`docker load -i fuck-bigc-jjfz.tar`
+
+[![Docker镜像](https://img.shields.io/badge/Docker-pull-%2344cef6?logo=docker&link=https%3A%2F%2Fhub.docker.com%2Frepository%2Fdocker%2Fstarnotes%2Ffuck-bigc-jjfz%2F)](https://hub.docker.com/repository/docker/starnotes/fuck-bigc-jjfz)
+
+拉取命令如下
+
+`docker pull starnotes/fuck-bigc-jjfz:latest`
+
+拉取之后使用如下命令**启动容器**
+
+`docker run --name=lesson -it --network=host --shm-size=2g starnotes/fuck-bigc-jjfz /bin/bash`
+
+然后按照容器显示的提示输入对应的用户名，密码，API等数据即可。
 
 ## 使用前的准备
 
