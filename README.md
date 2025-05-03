@@ -14,17 +14,17 @@
 
 [![Static Badge](https://img.shields.io/badge/RELEASE-v2.0-green?logo=github)](https://github.com/starnotes-xj/Fuck-BIGC-JJFZ/releases)
 
-docker镜像可以在Release中下载，镜像也可以直接拉取，使用docker镜像则无需进行下面的准备,docker镜像便于使用
+**docker镜像**可以在**Release**中下载，镜像也可以直接拉取，使用docker镜像则无需进行下面的准备,docker镜像便于使用
 
-在Release中的tar文件是Docker镜像
+[![Docker镜像](https://img.shields.io/badge/Docker-pull-%2344cef6?logo=docker&link=https%3A%2F%2Fhub.docker.com%2Frepository%2Fdocker%2Fstarnotes%2Ffuck-bigc-jjfz%2F)](https://hub.docker.com/repository/docker/starnotes/fuck-bigc-jjfz)
+
+在**Release**中的**tar**文件是Docker镜像
 
 下载之后使用如下命令加载即可，然后按照下面的容器启动命令启动即可
 
 `docker load -i fuck-bigc-jjfz.tar`
 
-[![Docker镜像](https://img.shields.io/badge/Docker-pull-%2344cef6?logo=docker&link=https%3A%2F%2Fhub.docker.com%2Frepository%2Fdocker%2Fstarnotes%2Ffuck-bigc-jjfz%2F)](https://hub.docker.com/repository/docker/starnotes/fuck-bigc-jjfz)
-
-拉取命令如下
+**拉取**命令如下
 
 `docker pull starnotes/fuck-bigc-jjfz:latest`
 
