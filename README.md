@@ -28,9 +28,13 @@
 
 `docker pull starnotes/fuck-bigc-jjfz:latest`
 
-拉取之后使用如下命令**启动容器**
+拉取之后使用如下命令**创建并启动容器**
 
 `docker run --name=lesson -it --network=host --shm-size=2g starnotes/fuck-bigc-jjfz /bin/bash`
+
+上一条命令执行之后本地已经有了容器，可以直接使用如下命令来**启动容器**
+
+`docker starnotes lesson`
 
 然后按照容器显示的提示输入对应的用户名，密码，API等数据即可。
 
@@ -85,12 +89,3 @@ API_KEY没有的可以去对应的官网注册账号，创建应用获取所需�
 > *本项目只支持**Chrome**浏览器，**火狐浏览器**需要自行修改代码和下载对应的**WebDriver**应用。*
 > ***需要爬取题库的源码请联系作者。上述有作者联系方式***
 > ***本代码遵循 GPL v3 许可证，未经作者书面许可，不得用于商业产品、不得倒卖。转载请说明出处。请尊重作者的劳动成果***
-
-
-
-
-
-
-
-
-
